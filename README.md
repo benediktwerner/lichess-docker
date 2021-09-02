@@ -20,7 +20,7 @@ docker run \
     brandone211/lichess
 ```
 
-If you are starting the container directly from Windows, you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws is located). However, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since this will significantly speed up compilation.
+If you are starting the container directly from Windows, you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located). However, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation.
 
 5. The contianer will automatically start redis and mongo but won't build or run any lila services, so you will have to do that manually. I generally create two additional sessions using `docker exec -it lichess bash` in new terminal windows:
     - One to run `lila-ws` using `cd ~/projects/lila-ws` and `sbt run`.
