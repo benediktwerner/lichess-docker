@@ -31,7 +31,7 @@ If you are starting the container directly from Windows, you can use `docker-run
             - `cd analyse` and `yarn dev` to build just the `analyse` module and similarly for other modules
             - And I also use this terminal for other miscellaneous stuff like accessing the db via `mongo lichess`.
     - And ofc, the main session will be used to run lila itself using `./lila run`. Before the first run, you should also run `mongo lichess bin/mongodb/indexes.js` to create db indices.
-    - Also see [Lichess Development Onboarding guide](https://github.com/ornicar/lila/wiki/Lichess-Development-Onboarding#installation) on the [Lichess GitHub wiki](https://github.com/ornicar/lila/wiki) for additional instructions on seeding the db, gaining admin access, or running suplementary services like fishnet for server analysis or playing vs Stockfish
+    - You should also read the [Lichess Development Onboarding guide](https://github.com/ornicar/lila/wiki/Lichess-Development-Onboarding#installation) on the [Lichess GitHub wiki](https://github.com/ornicar/lila/wiki) for additional instructions on seeding the db, gaining admin access, or running suplementary services like fishnet for server analysis or playing vs Stockfish
 
 Note, that with the run command above (or `docker-run.sh`) or the start command below, the container will be stopped (but not deleted) when the main session exits, so that session always has to be kept alive and ideally should be terminated last.
 
