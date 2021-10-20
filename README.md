@@ -18,7 +18,7 @@ docker run \
     --name lichess \
     --interactive \
     --tty \
-    brandone211/lichess
+    lichess
 ```
 
 If you are starting the container directly from Windows, you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located). However, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation.
