@@ -1,4 +1,5 @@
 #!/bin/bash
+
 source /home/lichess/.bashrc
 
 # Run Redis in the background.

@@ -41,3 +41,9 @@ Note, that with the run command above (or `docker-run.sh`) or the start command 
 * Restart the Docker container and attach to it: `docker start lichess --attach --interactive`
 * Open a second shell in the running container: `docker exec -it lichess bash`
 * Remove the Docker container (e.g. to mount a different volume): `docker rm lichess`
+
+# License
+
+- `build/nvm-install.sh` is licensed under the MIT license. See the file's header.
+- `build/sdkman-init.sh` is licensed under the Apache 2.0 license. See the file's header.
+- All other code is in the public domain.

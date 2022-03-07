@@ -17,7 +17,7 @@ USER lichess
 
 ADD build /home/lichess/build
 
-#mongodb
+# mongodb
 RUN sudo apt-key add /home/lichess/build/signatures/mongodb.asc \
   && echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 
@@ -40,7 +40,7 @@ RUN source /home/lichess/build/nvm-install.sh \
   && nvm install 16 \
   && npm install -g yarn
 
-#Java
+# Java
 RUN /home/lichess/build/sdkman-init.sh \
   && source /home/lichess/.sdkman/bin/sdkman-init.sh \
   && sdk install java 11.0.11.hs-adpt && sdk install sbt
