@@ -1,5 +1,7 @@
 # Lichess Docker Container
 
+Docker setup for Lichess development. Based on [BrandonE's original Lichess Docker setup](https://github.com/BrandonE/lichocker) (since that one doesn't work anymore).
+
 ## Usage
 
 1. Clone or download this repo and `cd` into it
@@ -35,14 +37,14 @@ If you are starting the container directly from Windows, you can use `docker-run
 
 Note, that with the run command above (or `docker-run.sh`) or the start command below, the container will be stopped (but not deleted) when the main session exits, so that session always has to be kept alive and ideally should be terminated last.
 
-# Useful commands
+## Useful commands
 
 * Stop the Docker container: `docker stop lichess`
 * Restart the Docker container and attach to it: `docker start lichess --attach --interactive`
 * Open a second shell in the running container: `docker exec -it lichess bash`
 * Remove the Docker container (e.g. to mount a different volume): `docker rm lichess`
 
-# License
+## License
 
 - `build/nvm-install.sh` is licensed under the MIT license. See the file's header.
 - `build/sdkman-init.sh` is licensed under the Apache 2.0 license. See the file's header.
