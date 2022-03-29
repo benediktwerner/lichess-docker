@@ -10,7 +10,7 @@ Docker setup for Lichess development. Based on [BrandonE's original Lichess Dock
 4. Clone or downlod [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). It's assumed they are placed in `$HOME/dev/lichess/{lila,lila-ws}` if you're on Linux or using Windows with WSL and in `C:\dev\lichess` if you're running Docker directly from Windows. If you place them somewhere else, you'll have to modify `docker-run.sh` or `docker-run.bat` or the command below to use the correct path.
 5. Create and start the container:
 
-On Linux or WSL, ither run `./docker-run.sh` or the following command (make sure to adjust `$HOME/dev/lichess` if you cloned lila and lila-ws to a different directory):
+On Linux or WSL, either run `./docker-run.sh` or the following command (make sure to adjust `$HOME/dev/lichess` if you cloned lila and lila-ws to a different directory):
 ```
 docker run \
     --mount type=bind,source=$HOME/dev/lichess,target=/home/lichess/projects \
