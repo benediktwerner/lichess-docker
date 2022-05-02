@@ -1,11 +1,11 @@
-FROM debian:buster-20210816-slim
+FROM ubuntu:focal-20220415
 
 SHELL ["/bin/bash", "-c"]
 
 RUN useradd -ms /bin/bash lichess \
     && apt-get update \
     && apt update \
-    && apt-get install -y sudo gnupg \
+    && apt-get install -y sudo gnupg ca-certificates\
     # Disable sudo login for the new lichess user.
     && echo "lichess ALL = NOPASSWD : ALL" >> /etc/sudoers
 
@@ -19,7 +19,7 @@ ADD build /home/lichess/build
 
 # mongodb
 RUN sudo apt-key add /home/lichess/build/signatures/mongodb.asc \
-  && echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+  && echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org.list
 
 RUN sudo apt-get update && sudo apt update \
   && sudo apt-get install -y \
