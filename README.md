@@ -5,10 +5,9 @@ Docker setup for Lichess development. Based on [BrandonE's original Lichess Dock
 ## Usage
 
 1. Clone or download this repo and `cd` into it
-2. If you're on Windows, make sure all `.sh` files have Unix line endings (i.e. just LF). Depending on your `git` configuration, they might be converted to Windows file endings (i.e. CLRF) which will not work. This may also apply to lila scripts like `./lila` or `./ui/build` later on.
-3. Build the image: `docker build --tag lichess .`
-4. Clone or downlod [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). It's assumed they are placed in `$HOME/dev/lichess/{lila,lila-ws}` if you're on Linux or using Windows with WSL and in `C:\dev\lichess` if you're running Docker directly from Windows. If you place them somewhere else, you'll have to modify `docker-run.sh` or `docker-run.bat` or the command below to use the correct path.
-5. Create and start the container:
+2. Build the image: `docker build --tag lichess .`
+3. Clone or downlod [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). It's assumed they are placed in `$HOME/dev/lichess/{lila,lila-ws}` if you're on Linux or using Windows with WSL and in `C:\dev\lichess` if you're running Docker directly from Windows. If you place them somewhere else, you'll have to modify `docker-run.sh` or `docker-run.bat` or the command below to use the correct path.
+4. Create and start the container:
 
 On Linux or WSL, either run `./docker-run.sh` or the following command (make sure to adjust `$HOME/dev/lichess` if you cloned lila and lila-ws to a different directory):
 ```
@@ -25,7 +24,7 @@ docker run \
 
 If you are starting the container directly from Windows, you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located). However, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation.
 
-6. The contianer will automatically start redis and mongo but won't build or run any lila services, so you will have to do that manually. I generally create two additional sessions using `docker exec -it lichess bash` in new terminal windows:
+5. The contianer will automatically start redis and mongo but won't build or run any lila services, so you will have to do that manually. I generally create two additional sessions using `docker exec -it lichess bash` in new terminal windows:
     - One to run `lila-ws` using `cd ~/projects/lila-ws` and `sbt run`.
     - Another to build UI stuff i.e. compile SCSS and TypeScript to CSS and JavaScript in `cd ~/projects/lila/ui`:
         - `./build` to build all the UI stuff. You should do this at least once the first time after cloning the project and probably again every time after pulling major changes.
