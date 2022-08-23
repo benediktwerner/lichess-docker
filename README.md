@@ -37,9 +37,9 @@ docker run \
 ```
 
 If you are starting the container directly from Windows, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation. Optionally you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located).
+The docker container will automatically start redis and mongo, but won't build or run any lila services. You will have to do that manually, as follows.
 
-The contianer will automatically start redis and mongo, but won't build or run any lila services. You will have to do that manually: 
-8. to reduce setup time, create two additional SSH terminal sessions (session 2 and 3)
+8. to reduce setup time, create two additional SSH terminal sessions (session 2 and 3) 
 9. In session 2, run the websocket server:
     -`docker exec -it lichess bash` 
     -`cd ~/projects/lila-ws` 
