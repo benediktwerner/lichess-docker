@@ -15,12 +15,23 @@ You must install the following first if they are not already available:
 
 1. SSH into your system as admin on Linux, or as an admin account on Windows. This is referred to as session 1.
 2. cd $HOME
-3. Clone or download this repo and `cd` into it (e.g. git clone https://github.com/benediktwerner/lichess-docker.git, then cd lichess-docker)
-4. Build the image: `docker build --tag lichess .`
-5. Still in #HOME, create the dev/lichess folder (e.g. mkdir dev then  mkdir dev/lichess). Then cd dev/lichess
-6. Clone or downlod [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). It's assumed they are placed in `$HOME/lichess-docker/dev/lichess/{lila,lila-ws}` if you're on Linux, or using Windows with WSL.  if you're running Docker directly from Windows, in `C:\dev\lichess` . If you place them somewhere else, you'll have to modify `docker-run.sh` or `docker-run.bat` or the command below to use the correct path.
-7. cd $HOME/lichess-docker
-8. Create and start the container:
+3. Clone or download this repo:
+     - `git clone https://github.com/benediktwerner/lichess-docker.git`
+     - `cd lichess-docker`
+6. Build the image: 
+     - `docker build --tag lichess .`
+8. Still in #HOME, create the dev/lichess folder:
+     - `mkdir dev` 
+     - `mkdir dev/lichess`
+     - `cd dev/lichess`
+10. Clone or download [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). 
+     - `git clone https://github.com/ornicar/lila`
+     - `git clone https://github.com/ornicar/lila-ws`
+     NOTE: if you're on Linux, or using Windows with WSL, it's assumed they are placed in `$HOME/dev/lichess/{lila,lila-ws}` .  
+     If you're running Docker directly from Windows, the preconfigured location is `C:\dev\lichess` . 
+     If you place them somewhere else, you'll have to modify `docker-run.sh` or `docker-run.bat` or the docker command below to use the correct path.
+13. cd $HOME/lichess-docker
+14. Create and start the container:
 
      - On Linux or WSL, either run `./docker-run.sh` or 
      - run this command, making sure to adjust `$HOME/dev/lichess` if you cloned lila and lila-ws to a different directory:
@@ -36,9 +47,8 @@ docker run \
     lichess
 ```
 
-If you are starting the container directly from Windows, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation. Optionally you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located).
+If you are starting the container directly from Windows, we strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation. Optionally you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located).
 The docker container will automatically start redis and mongo, but won't build or run any lila services. You will have to do that manually, as follows.
-
 To reduce setup time, create two additional SSH terminal sessions (session 2 and 3) 
 
 9. In session 2, run the websocket server: 
