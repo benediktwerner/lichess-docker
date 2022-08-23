@@ -18,20 +18,21 @@ You must install the following first if they are not already available:
 3. Clone or download this repo:
      - `git clone https://github.com/benediktwerner/lichess-docker.git`
      - `cd lichess-docker`
-6. Build the image: 
+4. Build the image: 
      - `docker build --tag lichess .`
-8. Still in #HOME, create the dev/lichess folder:
+5. Still in #HOME, create the dev/lichess folder:
      - `mkdir dev` 
      - `mkdir dev/lichess`
      - `cd dev/lichess`
-10. Clone or download [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). 
+6. Clone or download [lila](https://github.com/ornicar/lila) and [lila-ws](https://github.com/ornicar/lila-ws). 
      - `git clone https://github.com/ornicar/lila`
-     - `git clone https://github.com/ornicar/lila-ws`
-     NOTE: if you're on Linux, or using Windows with WSL, it's assumed they are placed in `$HOME/dev/lichess/{lila,lila-ws}` .  
-     If you're running Docker directly from Windows, the preconfigured location is `C:\dev\lichess` . 
+     - `git clone https://github.com/ornicar/lila-ws` 
+     
+     NOTE: if you're on Linux, or using Windows with WSL, it's assumed they are placed in `$HOME/dev/lichess/{lila,lila-ws}` . 
+     If you're running Docker directly from Windows, the preconfigured location is `C:\dev\lichess` .
      If you place them somewhere else, you'll have to modify `docker-run.sh` or `docker-run.bat` or the docker command below to use the correct path.
-13. cd $HOME/lichess-docker
-14. Create and start the container:
+7. cd $HOME/lichess-docker
+8. Create and start the container:
 
      - On Linux or WSL, either run `./docker-run.sh` or 
      - run this command, making sure to adjust `$HOME/dev/lichess` if you cloned lila and lila-ws to a different directory:
