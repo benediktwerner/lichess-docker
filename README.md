@@ -41,10 +41,10 @@ The docker container will automatically start redis and mongo, but won't build o
 
 To reduce setup time, create two additional SSH terminal sessions (session 2 and 3) 
 
-9. In session 2, run the websocket server:
-    -`docker exec -it lichess bash` 
-    -`cd ~/projects/lila-ws` 
-    -`sbt run
+9. In session 2, run the websocket server: 
+    - `docker exec -it lichess bash` 
+    - `cd ~/projects/lila-ws` 
+    - `sbt run
     - NOTE: At first setup, mongo will not be running yet. If you see something like this it can be saferly ignored:
          - INFO l.w.n.NettyServer [sbt-bg-threads-1] Listening to 9664
           WARN r.c.a.MongoDBSystem [reactivemongo-akka.actor.default-dispatcher-7] [Supervisor-1/Connection-2] The entire node set is unreachable, is there a network problem?
