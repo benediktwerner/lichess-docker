@@ -128,7 +128,8 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
        netty.useEpoll = false
        ...
   ```
-  After saving the changes above, we need to restart the docker: 
+  After saving the changes above, we need to restart the docker:
+  
      - exit the docker, returning to your admin prompt
      - docker stop lichess (your other windows will be kicked out of docker when complete)
      - docker start lichess --attach --interactive (your directorry will become ~projects/lila)
@@ -136,13 +137,15 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
     At the lila prompt:
      - `[lila] run`
        
-14. We can now connect to lichess from the browser:
-     - Visit <your host ip>:9663 in the browser
-     In the terminal session with [lila] run, you will see the logging of the connection.
+14. We can now connect to lichess from the browser: 
+     
+     - In your browser, visit:
+       `<your host ip>:9663`
+     - In the terminal session with [lila] run, you will see the logging of the connection.
      
 You should also read the [Lichess Development Onboarding guide](https://github.com/ornicar/lila/wiki/Lichess-Development-Onboarding#installation) on the [Lichess GitHub wiki](https://github.com/ornicar/lila/wiki) for additional instructions on seeding the db, gaining admin access, or running suplementary services like fishnet for server analysis or playing vs Stockfish
 
-**Note**: With the run command above (14) (or `docker-run.sh`) or the start command below, the container will be stopped (but not deleted) when the main session exits, so that session always has to be kept alive and ideally should be terminated last.
+**Note**: With the `[lila] run` command, or `docker-run.sh`, or the start command below, the container will be stopped (but not deleted) when the main session exits, so that session always has to be kept alive and ideally should be terminated last.
 
 ## Useful commands
 
