@@ -46,6 +46,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
     - `cd ~/projects/lila-ws` 
     - `sbt run`
     - NOTE: At first setup, mongo will not be running yet. If you see something like this it can be saferly ignored:
+```
          - INFO l.w.n.NettyServer [sbt-bg-threads-1] Listening to 9664
           WARN r.c.a.MongoDBSystem [reactivemongo-akka.actor.default-dispatcher-7] [Supervisor-1/Connection-2] The entire node set is unreachable, is there a network problem?
           ERROR r.c.a.MongoDBSystem [epollEventLoopGroup-3-1] [Supervisor-1/Connection-1] Fails to send a isMaster request to localhost:27017 (channel #52dc76c8)
@@ -53,12 +54,14 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
 	          at reactivemongo.io.netty.channel.AbstractChannel$AbstractUnsafe.write(Object, ChannelPromise)(Unknown Source)
           WARN r.c.a.MongoDBSystem [reactivemongo-akka.actor.default-dispatcher-6] [Supervisor-1/Connection-1] The entire node set is unreachable, is there a network problem?
           WARN r.a.MongoConnection [reactivemongo-akka.actor.default-dispatcher-6] [Supervisor-1/Connection-2] Timeout after 8200 milliseconds while probing the connection monitor: IsPrimaryAvailable#1534433389?
+```
           
 10. In session 3, build UI stuff i.e. compile SCSS and TypeScript to CSS and JavaScript:
     - `docker exec -it lichess bash` 
     - `cd ~/projects/lila/ui
     - `./build` 
     - If you see the following it can be safely ignored:
+```
          - perl: warning: Please check that your locale settings:
 	      LANGUAGE = (unset),
 	      LC_ALL = (unset),
@@ -67,6 +70,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
            are supported and installed on your system.
            perl: warning: Falling back to the standard locale ("C").
            perl: warning: Setting locale failed.
+```
 
     -  You should do step 10 at least once the first time after cloning the project, and probably again every time after pulling major changes.
     -  NOTES:
@@ -85,11 +89,14 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
           and then compile the Scala sources into ~projects/lila/modules/... 
      When completed you will see the lila prompt again.
      In your session 2 window (sbt run) you will see LILA connect:
+```
           INFO lila.ws.LilaHandler [lettuce-epollEventLoop-4-1] #################### LILA BOOT ####################
           INFO lila.ws.LilaHandler [lettuce-epollEventLoop-4-2] #################### LILA VERSIONING READY ####################
+```
 13.  If we are running lichess on a machine other than our desktop:
      Let's configure our lila and lila-ws to use the actual installation host info
      - Edit ~/projects/lila/conf/application.conf to add something like this:
+```
        ...
        # override values from base.conf here
        net.domain = "<your_ip>:9663"
@@ -97,7 +104,10 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
        net.asset.base_url = "http://<your_ip>:9663"
        net.base_url = "http://<your_ip>:9663"
        net.socket.domains = [ "<your_ip:9664" ]
-    - Edit ~.projects/lila-ws/src/main/resources/application.conf to add something like this:
+ ```
+ 
+    - Edit ~.projects/lila-ws/src/main/resources/application.conf to modify like this:
+```
        http.port = 9664
        mongo.uri = "mongodb://localhost:27017/lichess?appName=lila-ws"
        study.mongo.uri = ${mongo.uri}
@@ -105,6 +115,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
        csrf.origin = "http://<your_ip>:9663"
        netty.useEpoll = false
        ...
+  ```
   After saving the changes above, we need to restart the docker:
     - exit the docker, returning to your admin prompt
     - docker stop lichess (your other windows will be kicked out of docker when complete)
