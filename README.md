@@ -7,9 +7,9 @@ Also note that by default docker must be run using sudo. Add your admin to the d
 # Requirements
 You must install the following first if they are not already available:
 
-git (e.g. https://linuxopsys.com/topics/install-git-on-debian)
-docker (e.g. https://docs.docker.com/engine/install/debian/)
-    - NOTE: Be sure to use the Post-installation documentation also, to set up your docker group and make docker start at boot
+    - git (e.g. https://linuxopsys.com/topics/install-git-on-debian)
+    - docker (e.g. https://docs.docker.com/engine/install/debian/)
+         NOTE: Be sure to use the docker Post-installation documentation also, to set up your docker group and make docker start at boot
 
 ## Usage
 
@@ -104,9 +104,8 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
        net.asset.base_url = "http://<your_ip>:9663"
        net.base_url = "http://<your_ip>:9663"
        net.socket.domains = [ "<your_ip:9664" ]
- ```
- 
-    - Edit ~.projects/lila-ws/src/main/resources/application.conf to modify like this:
+```
+     - Edit ~.projects/lila-ws/src/main/resources/application.conf to modify like this:
 ```
        http.port = 9664
        mongo.uri = "mongodb://localhost:27017/lichess?appName=lila-ws"
