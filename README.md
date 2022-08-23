@@ -88,14 +88,14 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
         - `./build dev css` to only build SCSS
         - `cd analyse` and `yarn dev` to build just the `analyse` module and similarly for other modules
         - Also use this terminal for other miscellaneous stuff like accessing the db via `mongo lichess`.
- 11. Back in the original terminal (session 1) create the DB indices:
+11. Back in the original terminal (session 1) create the DB indices:
       - `docker exec -it lichess bash` 
       - `cd ~/projects/lila`
       - `mongo lichess bin/mongodb/indexes.js`
- 12.  Now we are ready to run lila itself: 
+12.  Now we are ready to run lila itself: 
      - `./lila` 
-     If all went well you will see the lila prompt. Enter the run command.
-     - [lila] run
+     If all went well you will see the lila prompt. Enter the run command: 
+     - `[lila] run`
      This will update a huge amount of files, pulling from https://raw.githubusercontent.com/lichess-org, https://repo1.maven.org
           and then compile the Scala sources into ~projects/lila/modules/... 
      When completed you will see the lila prompt again.
