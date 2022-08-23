@@ -58,7 +58,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
     - `sbt run`
     - NOTE: At first setup, mongo will not be running yet. If you see something like this it can be saferly ignored:
 ```
-         - INFO l.w.n.NettyServer [sbt-bg-threads-1] Listening to 9664
+          INFO l.w.n.NettyServer [sbt-bg-threads-1] Listening to 9664
           WARN r.c.a.MongoDBSystem [reactivemongo-akka.actor.default-dispatcher-7] [Supervisor-1/Connection-2] The entire node set is unreachable, is there a network problem?
           ERROR r.c.a.MongoDBSystem [epollEventLoopGroup-3-1] [Supervisor-1/Connection-1] Fails to send a isMaster request to localhost:27017 (channel #52dc76c8)
           reactivemongo.io.netty.channel.StacklessClosedChannelException: null
@@ -73,7 +73,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
     - `./build` 
     - If you see the following it can be safely ignored:
 ```
-         - perl: warning: Please check that your locale settings:
+           perl: warning: Please check that your locale settings:
 	      LANGUAGE = (unset),
 	      LC_ALL = (unset),
 	      LC_CTYPE = "en_US.UTF-8",
@@ -87,12 +87,12 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
     -  NOTES:
         - `./build dev css` to only build SCSS
         - `cd analyse` and `yarn dev` to build just the `analyse` module and similarly for other modules
-        - And I also use this terminal for other miscellaneous stuff like accessing the db via `mongo lichess`.
+        - Also use this terminal for other miscellaneous stuff like accessing the db via `mongo lichess`.
  11. Back in the original terminal (session 1) create the DB indices:
       - `docker exec -it lichess bash` 
       - `cd ~/projects/lila`
       - `mongo lichess bin/mongodb/indexes.js`
- 12.  Now we are ready to run lila itself.
+ 12.  Now we are ready to run lila itself: 
      - `./lila` 
      If all went well you will see the lila prompt. Enter the run command.
      - [lila] run
