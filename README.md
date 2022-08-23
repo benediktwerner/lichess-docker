@@ -106,7 +106,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
 ```
 13.  If we are running lichess on a machine other than our desktop:
      Let's configure our lila and lila-ws to use the actual installation host info
-     - Edit ~/projects/lila/conf/application.conf to add something like this:
+   - Edit ~/projects/lila/conf/application.conf to add something like this:
 ```
        ...
        # override values from base.conf here
@@ -116,7 +116,9 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
        net.base_url = "http://<your_ip>:9663"
        net.socket.domains = [ "<your_ip:9664" ]
 ```
-     - Edit ~.projects/lila-ws/src/main/resources/application.conf to modify like this:
+
+   - Edit ~/projects/lila-ws/src/main/resources/application.conf to modify like this:
+     
 ```
        http.port = 9664
        mongo.uri = "mongodb://localhost:27017/lichess?appName=lila-ws"
@@ -130,9 +132,9 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
     - exit the docker, returning to your admin prompt
     - docker stop lichess (your other windows will be kicked out of docker when complete)
     - docker start lichess --attach --interactive (your directorry will become ~projects/lila)
-    - ./lila
+    - `./lila`
     At the lila prompt:
-    - [lila] run
+    - `[lila] run`
        
 14. We can now connect to lichess from the browser:
      - Visit <your host ip>:9663 in the browser
