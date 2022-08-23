@@ -69,7 +69,7 @@ To reduce setup time, create two additional SSH terminal sessions (session 2 and
           
 10. In session 3, build UI stuff i.e. compile SCSS and TypeScript to CSS and JavaScript:
     - `docker exec -it lichess bash` 
-    - `cd ~/projects/lila/ui
+    - `cd ~/projects/lila/ui`
     - `./build` 
     - If you see the following it can be safely ignored:
 ```
