@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20220415
+FROM ubuntu:focal-20221130
 
 SHELL ["/bin/bash", "-c"]
 
@@ -33,17 +33,17 @@ RUN sudo apt-get update && sudo apt update \
   git-all \
   vim
 
-# nvm => node => yarn
+# nvm => node => pnpm
 RUN source /home/lichess/build/nvm-install.sh \
   && export NVM_DIR="$HOME/.nvm" \
   && source "$NVM_DIR/nvm.sh" \
-  && nvm install 16 \
-  && npm install -g yarn
+  && nvm install 19 \
+  && npm install -g pnpm
 
 # Java
 RUN /home/lichess/build/sdkman-init.sh \
   && source /home/lichess/.sdkman/bin/sdkman-init.sh \
-  && sdk install java 17.0.3-tem && sdk install sbt
+  && sdk install java 17.0.5-tem && sdk install sbt
 
 # Silence the parallel citation warning.
 RUN sudo mkdir -p ~/.parallel && sudo touch ~/.parallel/will-cite
