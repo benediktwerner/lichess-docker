@@ -29,8 +29,9 @@ If you are starting the container directly from Windows, you can use `docker-run
     - Another in `~/projects/lila/ui` to build the client-side code there i.e. compile SCSS and TypeScript to CSS and JavaScript:
         - `./build -w` to build everything and then watch for changes and rebuild. This is quite performant nowadays so it's probably what you want.
         - `./build` just builds everything once and then exits.
-        - `./build sass` to only build SCSS
+        - `./build --sass` to only build SCSS
         - `./build analyse` to only build the `analyse` module and similarly for other modules
+        - See the [ui readme](https://github.com/lichess-org/lila/tree/master/ui) for more details
     - Sometimes, you might want a 3rd session to run other miscellaneous stuff like accessing the db via `mongo lichess`. You might also want to check out [lila-db-seed](https://github.com/lichess-org/lila-db-seed) to populate your db with some test data.
     - And ofc, the main session will be used to run lila itself using `./lila` and then `run`. Before the first run, you should also run `mongo lichess bin/mongodb/indexes.js` to create db indices.
     - You should also read the [Lichess Development Onboarding guide](https://github.com/ornicar/lila/wiki/Lichess-Development-Onboarding#installation) on the [Lichess GitHub wiki](https://github.com/ornicar/lila/wiki) for additional instructions on seeding the db, gaining admin access, or running suplementary services like fishnet for server analysis or playing vs Stockfish
