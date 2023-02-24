@@ -24,13 +24,14 @@ docker run \
 
 If you are starting the container directly from Windows, you can use `docker-run.bat` instead (again, make sure to adjust the mount point to the actual directory where lila and lila-ws are located). However, I strongly recommend running Docker from WSL 2 and placing lila and lila-ws in the WSL 2 file system since that will significantly speed up compilation.
 
-5. The contianer will automatically start redis and mongo but won't build or run any lila services, so you will have to do that manually. I generally create two additional sessions using `docker exec -it lichess bash` in new terminal windows:
+5. The contianer will automatically start redis and mongo but won't build or run any lila services, so you will have to do that manually. I generally create two or three additional sessions using `docker exec -it lichess bash` in new terminal windows:
     - One to run `lila-ws` using `cd ~/projects/lila-ws` and `sbt run`.
-    - Another to build UI stuff i.e. compile SCSS and TypeScript to CSS and JavaScript in `cd ~/projects/lila/ui`:
-        - `./build` to build all the UI stuff. You should do this at least once the first time after cloning the project and probably again every time after pulling major changes.
-        - `./build dev css` to only build SCSS
-        - `cd analyse` and `yarn dev` to build just the `analyse` module and similarly for other modules
-        - And I also use this terminal for other miscellaneous stuff like accessing the db via `mongo lichess`.
+    - Another in `~/projects/lila/ui` to build the client-side code there i.e. compile SCSS and TypeScript to CSS and JavaScript:
+        - `./build -w` to build everything and then watch for changes and rebuild. This is quite performant nowadays so it's probably what you want.
+        - `./build` just builds everything once and then exits.
+        - `./build sass` to only build SCSS
+        - `./build analyse` to only build the `analyse` module and similarly for other modules
+    - Sometimes, you might want a 3rd session to run other miscellaneous stuff like accessing the db via `mongo lichess`. You might also want to check out [lila-db-seed](https://github.com/lichess-org/lila-db-seed) to populate your db with some test data.
     - And ofc, the main session will be used to run lila itself using `./lila` and then `run`. Before the first run, you should also run `mongo lichess bin/mongodb/indexes.js` to create db indices.
     - You should also read the [Lichess Development Onboarding guide](https://github.com/ornicar/lila/wiki/Lichess-Development-Onboarding#installation) on the [Lichess GitHub wiki](https://github.com/ornicar/lila/wiki) for additional instructions on seeding the db, gaining admin access, or running suplementary services like fishnet for server analysis or playing vs Stockfish
 
