@@ -43,7 +43,7 @@ RUN source /home/lichess/build/nvm-install.sh \
 # Java
 RUN /home/lichess/build/sdkman-init.sh \
   && source /home/lichess/.sdkman/bin/sdkman-init.sh \
-  && sdk install java 17.0.5-tem && sdk install sbt
+  && sdk install java 21.0.1-tem && sdk install sbt
 
 # Silence the parallel citation warning.
 RUN sudo mkdir -p ~/.parallel && sudo touch ~/.parallel/will-cite
