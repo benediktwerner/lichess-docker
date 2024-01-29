@@ -1,6 +1,9 @@
 # Lichess Docker Container
 
-Docker setup for Lichess development. Based on [BrandonE's original Lichess Docker setup](https://github.com/BrandonE/lichocker) (since that one doesn't work anymore).
+> [!CAUTION]
+> This repository is not being updated anymore. Use the [official Docker setup](https://github.com/lichess-org/lila-docker) instead. Or use the [Gitpod setup](https://github.com/lichess-org/lila-gitpod) for an even simpler start.
+
+Docker setup for Lichess development. Based on [BrandonE's original Lichess Docker setup](https://github.com/BrandonE/lichocker).
 
 ## Usage
 
